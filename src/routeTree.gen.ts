@@ -10,33 +10,79 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FaqsRouteImport } from './routes/faqs'
+import { Route as HelplinesRouteImport } from './routes/helplines'
+import { Route as KnowYourRightsRouteImport } from './routes/know-your-rights'
+import { Route as LegalHelpRouteImport } from './routes/legal-help'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelplinesRoute = HelplinesRouteImport.update({
+  id: '/helplines',
+  path: '/helplines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowYourRightsRoute = KnowYourRightsRouteImport.update({
+  id: '/know-your-rights',
+  path: '/know-your-rights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalHelpRoute = LegalHelpRouteImport.update({
+  id: '/legal-help',
+  path: '/legal-help',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/faqs': typeof FaqsRoute
+  '/helplines': typeof HelplinesRoute
+  '/know-your-rights': typeof KnowYourRightsRoute
+  '/legal-help': typeof LegalHelpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/faqs': typeof FaqsRoute
+  '/helplines': typeof HelplinesRoute
+  '/know-your-rights': typeof KnowYourRightsRoute
+  '/legal-help': typeof LegalHelpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/faqs': typeof FaqsRoute
+  '/helplines': typeof HelplinesRoute
+  '/know-your-rights': typeof KnowYourRightsRoute
+  '/legal-help': typeof LegalHelpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/faqs' | '/helplines' | '/know-your-rights' | '/legal-help'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/faqs' | '/helplines' | '/know-your-rights' | '/legal-help'
+  id:
+    | '__root__'
+    | '/'
+    | '/faqs'
+    | '/helplines'
+    | '/know-your-rights'
+    | '/legal-help'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FaqsRoute: typeof FaqsRoute
+  HelplinesRoute: typeof HelplinesRoute
+  KnowYourRightsRoute: typeof KnowYourRightsRoute
+  LegalHelpRoute: typeof LegalHelpRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +94,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/helplines': {
+      id: '/helplines'
+      path: '/helplines'
+      fullPath: '/helplines'
+      preLoaderRoute: typeof HelplinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/know-your-rights': {
+      id: '/know-your-rights'
+      path: '/know-your-rights'
+      fullPath: '/know-your-rights'
+      preLoaderRoute: typeof KnowYourRightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal-help': {
+      id: '/legal-help'
+      path: '/legal-help'
+      fullPath: '/legal-help'
+      preLoaderRoute: typeof LegalHelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FaqsRoute: FaqsRoute,
+  HelplinesRoute: HelplinesRoute,
+  KnowYourRightsRoute: KnowYourRightsRoute,
+  LegalHelpRoute: LegalHelpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
