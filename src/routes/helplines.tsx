@@ -149,6 +149,7 @@ function Helplines() {
             <p className="text-muted-foreground">{t("help.contactText")}</p>
             <Link
               to="/know-your-rights"
+              search={{ topic: undefined }}
               className="mt-4 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-bold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               {t("nav.rights")}

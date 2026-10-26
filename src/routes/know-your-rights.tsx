@@ -14,7 +14,7 @@ import { TopicIcon } from "@/components/topic-icon";
 
 export const Route = createFileRoute("/know-your-rights")({
   validateSearch: (search: Record<string, unknown>) => ({
-    topic: typeof search.topic === "string" ? search.topic : undefined,
+    topic: typeof search["topic"] === "string" ? search["topic"] : undefined,
   }),
   head: () => ({
     meta: [
