@@ -89,7 +89,7 @@ export function SiteHeader() {
               key={link.to}
               to={link.to}
               className={`rounded-md border-b-2 px-3 py-2 text-[15px] font-semibold transition-colors ${
-                isActive(link.to, link.exact)
+                isActive(link.to, "exact" in link ? link.exact : undefined)
                   ? "border-gold text-primary"
                   : "border-transparent text-muted-foreground hover:border-border hover:text-foreground"
               }`}
