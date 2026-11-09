@@ -171,7 +171,7 @@ export function SiteHeader() {
                 to={link.to}
                 onClick={() => setOpen(false)}
                 className={`rounded-md px-3 py-3 text-base font-semibold transition-colors ${
-                  isActive(link.to, link.exact)
+                  isActive(link.to, "exact" in link ? link.exact : undefined)
                     ? "bg-secondary text-primary"
                     : "text-foreground hover:bg-muted"
                 }`}
