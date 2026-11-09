@@ -10,14 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BookmarksRouteImport } from './routes/bookmarks'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as HelplinesRouteImport } from './routes/helplines'
 import { Route as KnowYourRightsRouteImport } from './routes/know-your-rights'
+import { Route as LegalAidEligibilityCheckerRouteImport } from './routes/legal-aid-eligibility-checker'
 import { Route as LegalHelpRouteImport } from './routes/legal-help'
+import { Route as LegalUpdatesRouteImport } from './routes/legal-updates'
+import { Route as MyCategoriesRouteImport } from './routes/my-categories'
+import { Route as UpcomingEventsRouteImport } from './routes/upcoming-events'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookmarksRoute = BookmarksRouteImport.update({
+  id: '/bookmarks',
+  path: '/bookmarks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqsRoute = FaqsRouteImport.update({
@@ -35,54 +45,120 @@ const KnowYourRightsRoute = KnowYourRightsRouteImport.update({
   path: '/know-your-rights',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalAidEligibilityCheckerRoute =
+  LegalAidEligibilityCheckerRouteImport.update({
+    id: '/legal-aid-eligibility-checker',
+    path: '/legal-aid-eligibility-checker',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LegalHelpRoute = LegalHelpRouteImport.update({
   id: '/legal-help',
   path: '/legal-help',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalUpdatesRoute = LegalUpdatesRouteImport.update({
+  id: '/legal-updates',
+  path: '/legal-updates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyCategoriesRoute = MyCategoriesRouteImport.update({
+  id: '/my-categories',
+  path: '/my-categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpcomingEventsRoute = UpcomingEventsRouteImport.update({
+  id: '/upcoming-events',
+  path: '/upcoming-events',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
   '/faqs': typeof FaqsRoute
   '/helplines': typeof HelplinesRoute
   '/know-your-rights': typeof KnowYourRightsRoute
+  '/legal-aid-eligibility-checker': typeof LegalAidEligibilityCheckerRoute
   '/legal-help': typeof LegalHelpRoute
+  '/legal-updates': typeof LegalUpdatesRoute
+  '/my-categories': typeof MyCategoriesRoute
+  '/upcoming-events': typeof UpcomingEventsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
   '/faqs': typeof FaqsRoute
   '/helplines': typeof HelplinesRoute
   '/know-your-rights': typeof KnowYourRightsRoute
+  '/legal-aid-eligibility-checker': typeof LegalAidEligibilityCheckerRoute
   '/legal-help': typeof LegalHelpRoute
+  '/legal-updates': typeof LegalUpdatesRoute
+  '/my-categories': typeof MyCategoriesRoute
+  '/upcoming-events': typeof UpcomingEventsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
   '/faqs': typeof FaqsRoute
   '/helplines': typeof HelplinesRoute
   '/know-your-rights': typeof KnowYourRightsRoute
+  '/legal-aid-eligibility-checker': typeof LegalAidEligibilityCheckerRoute
   '/legal-help': typeof LegalHelpRoute
+  '/legal-updates': typeof LegalUpdatesRoute
+  '/my-categories': typeof MyCategoriesRoute
+  '/upcoming-events': typeof UpcomingEventsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/faqs' | '/helplines' | '/know-your-rights' | '/legal-help'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/faqs' | '/helplines' | '/know-your-rights' | '/legal-help'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
+    | '/bookmarks'
     | '/faqs'
     | '/helplines'
     | '/know-your-rights'
+    | '/legal-aid-eligibility-checker'
     | '/legal-help'
+    | '/legal-updates'
+    | '/my-categories'
+    | '/upcoming-events'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/bookmarks'
+    | '/faqs'
+    | '/helplines'
+    | '/know-your-rights'
+    | '/legal-aid-eligibility-checker'
+    | '/legal-help'
+    | '/legal-updates'
+    | '/my-categories'
+    | '/upcoming-events'
+  id:
+    | '__root__'
+    | '/'
+    | '/bookmarks'
+    | '/faqs'
+    | '/helplines'
+    | '/know-your-rights'
+    | '/legal-aid-eligibility-checker'
+    | '/legal-help'
+    | '/legal-updates'
+    | '/my-categories'
+    | '/upcoming-events'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookmarksRoute: typeof BookmarksRoute
   FaqsRoute: typeof FaqsRoute
   HelplinesRoute: typeof HelplinesRoute
   KnowYourRightsRoute: typeof KnowYourRightsRoute
+  LegalAidEligibilityCheckerRoute: typeof LegalAidEligibilityCheckerRoute
   LegalHelpRoute: typeof LegalHelpRoute
+  LegalUpdatesRoute: typeof LegalUpdatesRoute
+  MyCategoriesRoute: typeof MyCategoriesRoute
+  UpcomingEventsRoute: typeof UpcomingEventsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bookmarks': {
+      id: '/bookmarks'
+      path: '/bookmarks'
+      fullPath: '/bookmarks'
+      preLoaderRoute: typeof BookmarksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faqs': {
@@ -115,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KnowYourRightsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal-aid-eligibility-checker': {
+      id: '/legal-aid-eligibility-checker'
+      path: '/legal-aid-eligibility-checker'
+      fullPath: '/legal-aid-eligibility-checker'
+      preLoaderRoute: typeof LegalAidEligibilityCheckerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/legal-help': {
       id: '/legal-help'
       path: '/legal-help'
@@ -122,15 +212,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegalHelpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal-updates': {
+      id: '/legal-updates'
+      path: '/legal-updates'
+      fullPath: '/legal-updates'
+      preLoaderRoute: typeof LegalUpdatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-categories': {
+      id: '/my-categories'
+      path: '/my-categories'
+      fullPath: '/my-categories'
+      preLoaderRoute: typeof MyCategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upcoming-events': {
+      id: '/upcoming-events'
+      path: '/upcoming-events'
+      fullPath: '/upcoming-events'
+      preLoaderRoute: typeof UpcomingEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookmarksRoute: BookmarksRoute,
   FaqsRoute: FaqsRoute,
   HelplinesRoute: HelplinesRoute,
   KnowYourRightsRoute: KnowYourRightsRoute,
+  LegalAidEligibilityCheckerRoute: LegalAidEligibilityCheckerRoute,
   LegalHelpRoute: LegalHelpRoute,
+  LegalUpdatesRoute: LegalUpdatesRoute,
+  MyCategoriesRoute: MyCategoriesRoute,
+  UpcomingEventsRoute: UpcomingEventsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

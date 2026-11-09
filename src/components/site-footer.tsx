@@ -54,6 +54,11 @@ export function SiteFooter() {
                 { to: "/legal-help", key: "nav.help" },
                 { to: "/faqs", key: "nav.faqs" },
                 { to: "/helplines", key: "nav.helplines" },
+                { to: "/my-categories", key: "nav.categories" },
+                { to: "/legal-updates", key: "nav.updates" },
+                { to: "/legal-aid-eligibility-checker", key: "nav.eligibility" },
+                { to: "/upcoming-events", key: "nav.events" },
+                { to: "/bookmarks", key: "nav.bookmarks" },
               ].map((link) => (
                 <li key={link.to}>
                   <Link

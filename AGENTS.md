@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the five added NyayaDisha placeholder pages as separate leaf routes and reuse `SectionPlaceholder` for their shared bilingual page layout so route metadata stays page-specific.
