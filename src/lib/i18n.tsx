@@ -15,6 +15,12 @@ const en: Record<string, string> = {
   "nav.help": "Legal Help",
   "nav.faqs": "FAQs",
   "nav.helplines": "Helplines",
+  "nav.more": "More",
+  "nav.categories": "My Categories",
+  "nav.updates": "Legal Updates",
+  "nav.eligibility": "Legal Aid Eligibility Checker",
+  "nav.events": "Upcoming Events",
+  "nav.bookmarks": "Bookmarks",
   "brand.tag": "Legal Aid & Rights Awareness Portal",
   "header.menu": "Menu",
   "header.language": "Language",
@@ -104,6 +110,22 @@ const en: Record<string, string> = {
     "Trusted government portals for further information and complaints.",
   "helpline.visit": "Visit portal",
 
+  "categories.title": "My Categories",
+  "categories.intro":
+    "Choose areas of law that matter to you to find related topics. Category selection is not available yet.",
+  "updates.title": "Legal Updates",
+  "updates.intro":
+    "This section is intended to share verified legal updates. No updates are published here yet.",
+  "eligibility.title": "Legal Aid Eligibility Checker",
+  "eligibility.intro":
+    "This page is a placeholder for general legal-aid eligibility information. It does not assess eligibility or provide results.",
+  "events.title": "Upcoming Events",
+  "events.intro":
+    "See upcoming legal-aid and rights-awareness events. Verified event listings are not available yet.",
+  "bookmarks.title": "Bookmarks",
+  "bookmarks.intro":
+    "Return to legal topics you have saved. Bookmarking is not available yet.",
+
   "footer.about": "About the Portal",
   "footer.aboutText":
     "NyayaDisha helps citizens of India understand their basic legal rights in simple language, take practical next steps, and find trusted official resources.",
@@ -123,6 +145,12 @@ const kn: Record<string, string> = {
   "nav.help": "ಕಾನೂನು ಸಹಾಯ",
   "nav.faqs": "ಪ್ರಶ್ನೋತ್ತರ",
   "nav.helplines": "ಸಹಾಯವಾಣಿಗಳು",
+  "nav.more": "ಇನ್ನಷ್ಟು",
+  "nav.categories": "ನನ್ನ ವರ್ಗಗಳು",
+  "nav.updates": "ಕಾನೂನು ನವೀಕರಣಗಳು",
+  "nav.eligibility": "ಕಾನೂನು ನೆರವು ಅರ್ಹತಾ ಪರಿಶೀಲಕ",
+  "nav.events": "ಮುಂಬರುವ ಕಾರ್ಯಕ್ರಮಗಳು",
+  "nav.bookmarks": "ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು",
   "brand.tag": "ಕಾನೂನು ಸಹಾಯ ಮತ್ತು ಹಕ್ಕುಗಳ ಜಾಗೃತಿ ಪೋರ್ಟಲ್",
   "header.menu": "ಮೆನು",
   "header.language": "ಭಾಷೆ",
@@ -209,6 +237,22 @@ const kn: Record<string, string> = {
   "helpline.resourcesTitle": "ಅಧಿಕೃತ ಸಂಪನ್ಮೂಲಗಳು",
   "helpline.resourcesSub": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿ ಮತ್ತು ದೂರುಗಳಿಗೆ ನಂಬಲರ್ಹ ಸರ್ಕಾರಿ ಪೋರ್ಟಲ್‌ಗಳು.",
   "helpline.visit": "ಪೋರ್ಟಲ್ ನೋಡಿ",
+
+  "categories.title": "ನನ್ನ ವರ್ಗಗಳು",
+  "categories.intro":
+    "ನಿಮಗೆ ಸಂಬಂಧಿಸಿದ ಕಾನೂನು ವಿಷಯಗಳನ್ನು ಹುಡುಕಲು ಆಸಕ್ತಿಯ ಕ್ಷೇತ್ರಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ. ವರ್ಗ ಆಯ್ಕೆ ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲ.",
+  "updates.title": "ಕಾನೂನು ನವೀಕರಣಗಳು",
+  "updates.intro":
+    "ಪರಿಶೀಲಿಸಿದ ಕಾನೂನು ನವೀಕರಣಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಈ ವಿಭಾಗ ಉದ್ದೇಶಿಸಲಾಗಿದೆ. ಇನ್ನೂ ಯಾವುದೇ ನವೀಕರಣಗಳನ್ನು ಪ್ರಕಟಿಸಿಲ್ಲ.",
+  "eligibility.title": "ಕಾನೂನು ನೆರವು ಅರ್ಹತಾ ಪರಿಶೀಲಕ",
+  "eligibility.intro":
+    "ಈ ಪುಟವು ಕಾನೂನು ನೆರವು ಅರ್ಹತೆಯ ಸಾಮಾನ್ಯ ಮಾಹಿತಿಗಾಗಿ ಇರುವ ಸ್ಥಳವಾಗಿದೆ. ಇದು ಅರ್ಹತೆಯನ್ನು ಪರಿಶೀಲಿಸುವುದಿಲ್ಲ ಅಥವಾ ಫಲಿತಾಂಶ ನೀಡುವುದಿಲ್ಲ.",
+  "events.title": "ಮುಂಬರುವ ಕಾರ್ಯಕ್ರಮಗಳು",
+  "events.intro":
+    "ಮುಂಬರುವ ಕಾನೂನು ನೆರವು ಮತ್ತು ಹಕ್ಕುಗಳ ಜಾಗೃತಿ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ನೋಡಿ. ಪರಿಶೀಲಿಸಿದ ಕಾರ್ಯಕ್ರಮಗಳ ಪಟ್ಟಿ ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲ.",
+  "bookmarks.title": "ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು",
+  "bookmarks.intro":
+    "ನೀವು ಉಳಿಸಿದ ಕಾನೂನು ವಿಷಯಗಳಿಗೆ ಮರಳಿ ಹೋಗಿ. ಬುಕ್‌ಮಾರ್ಕ್ ಮಾಡುವ ಸೌಲಭ್ಯ ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲ.",
 
   "footer.about": "ಪೋರ್ಟಲ್ ಬಗ್ಗೆ",
   "footer.aboutText":

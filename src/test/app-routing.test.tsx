@@ -14,4 +14,24 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("matches all existing and newly added navigation pages", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    const paths = [
+      "/know-your-rights",
+      "/legal-help",
+      "/faqs",
+      "/helplines",
+      "/my-categories",
+      "/legal-updates",
+      "/legal-aid-eligibility-checker",
+      "/upcoming-events",
+      "/bookmarks",
+    ];
+
+    for (const path of paths) {
+      const matches = router.matchRoutes(path);
+      expect(matches.at(-1)?.routeId, `Expected ${path} to match a page`).not.toBe(rootRouteId);
+    }
+  });
 });

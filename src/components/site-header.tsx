@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Menu, Scale, X } from "lucide-react";
+import { ChevronDown, Menu, Scale, X } from "lucide-react";
 import { useLanguage, type Lang } from "@/lib/i18n";
 
 const links = [
@@ -9,6 +9,14 @@ const links = [
   { to: "/legal-help", key: "nav.help" },
   { to: "/faqs", key: "nav.faqs" },
   { to: "/helplines", key: "nav.helplines" },
+];
+
+const additionalLinks = [
+  { to: "/my-categories", key: "nav.categories" },
+  { to: "/legal-updates", key: "nav.updates" },
+  { to: "/legal-aid-eligibility-checker", key: "nav.eligibility" },
+  { to: "/upcoming-events", key: "nav.events" },
+  { to: "/bookmarks", key: "nav.bookmarks" },
 ];
 
 function LanguageSwitch({ className = "" }: { className?: string }) {
@@ -47,6 +55,7 @@ export function SiteHeader() {
   const { t } = useLanguage();
   const pathname = useLocation().pathname;
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   const isActive = (to: string, exact?: boolean) =>
     exact ? pathname === to : pathname === to || pathname.startsWith(`${to}/`);
@@ -88,6 +97,40 @@ export function SiteHeader() {
               {t(link.key)}
             </Link>
           ))}
+          <div className="relative">
+            <button
+              type="button"
+              aria-expanded={moreOpen}
+              aria-haspopup="true"
+              onClick={() => setMoreOpen((value) => !value)}
+              className={`inline-flex items-center gap-1 rounded-md border-b-2 px-3 py-2 text-[15px] font-semibold transition-colors ${
+                additionalLinks.some((link) => isActive(link.to))
+                  ? "border-gold text-primary"
+                  : "border-transparent text-muted-foreground hover:border-border hover:text-foreground"
+              }`}
+            >
+              {t("nav.more")}
+              <ChevronDown className="h-4 w-4" aria-hidden="true" />
+            </button>
+            {moreOpen && (
+              <div className="absolute right-0 top-full z-50 mt-2 w-72 rounded-md border border-border bg-card p-1 shadow-lg">
+                {additionalLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setMoreOpen(false)}
+                    className={`block rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
+                      isActive(link.to)
+                        ? "bg-secondary text-primary"
+                        : "text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {t(link.key)}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="hidden lg:block">
@@ -122,7 +165,7 @@ export function SiteHeader() {
           className="border-t border-border bg-background lg:hidden"
         >
           <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6">
-            {links.map((link) => (
+            {[...links, ...additionalLinks].map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
