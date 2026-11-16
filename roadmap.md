@@ -1,5 +1,5 @@
-# NyayaDisha navigation enhancement
+# NyayaDisha feature roadmap
 
-- [ ] Add bilingual navigation links while preserving the current header and footer links.
-- [ ] Add five bilingual placeholder pages with route-specific metadata.
-- [ ] Verify routing tests, desktop/mobile navigation, and preview diagnostics.
+- [ ] Complete the five bilingual navigation pages and verify routing, navigation, and preview diagnostics.
+- [ ] Expand My Categories into bilingual citizen-category and legal-topic guides with interactive knowledge checks, FAQs, verified official resources, and local bookmarks.
+- [ ] Connect bookmarked topic guides to the Bookmarks page and verify refresh persistence, language switching, and responsive navigation.
