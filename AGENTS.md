@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep the five added NyayaDisha placeholder pages as separate leaf routes and reuse `SectionPlaceholder` for their shared bilingual page layout so route metadata stays page-specific.
+- Keep citizen-category and topic-guide copy in bilingual data modules, with topic detail pages as a separate dynamic leaf route, so the guides remain extensible and shareable.

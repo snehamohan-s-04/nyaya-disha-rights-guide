@@ -6,12 +6,22 @@ export function useTopicBookmarks() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setBookmarks(parseTopicBookmarks(window.localStorage.getItem(TOPIC_BOOKMARKS_KEY)));
-    setReady(true);
+    try {
+      setBookmarks(parseTopicBookmarks(window.localStorage.getItem(TOPIC_BOOKMARKS_KEY)));
+    } catch {
+      setBookmarks([]);
+    } finally {
+      setReady(true);
+    }
   }, []);
 
   useEffect(() => {
-    if (ready) window.localStorage.setItem(TOPIC_BOOKMARKS_KEY, JSON.stringify(bookmarks));
+    if (!ready) return;
+    try {
+      window.localStorage.setItem(TOPIC_BOOKMARKS_KEY, JSON.stringify(bookmarks));
+    } catch {
+      // Keep bookmarks usable for the current visit when browser storage is unavailable.
+    }
   }, [bookmarks, ready]);
 
   const toggle = (topicId: string) => setBookmarks((saved) => toggleTopicBookmark(saved, topicId));
