@@ -1,4 +1,4 @@
-import type { Topic } from "@/data/content";
+import { topics, type Topic } from "@/data/content";
 import type { Bilingual } from "@/lib/i18n";
 
 export interface CitizenCategory {
@@ -131,6 +131,8 @@ export const additionalTopics: Topic[] = [
     },
   },
 ];
+
+export const allTopics: Topic[] = [...topics, ...additionalTopics];
 
 export const citizenCategories: CitizenCategory[] = [
   {

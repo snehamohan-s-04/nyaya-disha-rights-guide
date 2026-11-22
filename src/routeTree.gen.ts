@@ -19,6 +19,7 @@ import { Route as LegalHelpRouteImport } from './routes/legal-help'
 import { Route as LegalUpdatesRouteImport } from './routes/legal-updates'
 import { Route as MyCategoriesRouteImport } from './routes/my-categories'
 import { Route as UpcomingEventsRouteImport } from './routes/upcoming-events'
+import { Route as MyCategoriesTopicIdRouteImport } from './routes/my-categories.$topicId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -71,6 +72,11 @@ const UpcomingEventsRoute = UpcomingEventsRouteImport.update({
   path: '/upcoming-events',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MyCategoriesTopicIdRoute = MyCategoriesTopicIdRouteImport.update({
+  id: '/$topicId',
+  path: '/$topicId',
+  getParentRoute: () => MyCategoriesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -81,8 +87,9 @@ export interface FileRoutesByFullPath {
   '/legal-aid-eligibility-checker': typeof LegalAidEligibilityCheckerRoute
   '/legal-help': typeof LegalHelpRoute
   '/legal-updates': typeof LegalUpdatesRoute
-  '/my-categories': typeof MyCategoriesRoute
+  '/my-categories': typeof MyCategoriesRouteWithChildren
   '/upcoming-events': typeof UpcomingEventsRoute
+  '/my-categories/$topicId': typeof MyCategoriesTopicIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -93,8 +100,9 @@ export interface FileRoutesByTo {
   '/legal-aid-eligibility-checker': typeof LegalAidEligibilityCheckerRoute
   '/legal-help': typeof LegalHelpRoute
   '/legal-updates': typeof LegalUpdatesRoute
-  '/my-categories': typeof MyCategoriesRoute
+  '/my-categories': typeof MyCategoriesRouteWithChildren
   '/upcoming-events': typeof UpcomingEventsRoute
+  '/my-categories/$topicId': typeof MyCategoriesTopicIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -106,8 +114,9 @@ export interface FileRoutesById {
   '/legal-aid-eligibility-checker': typeof LegalAidEligibilityCheckerRoute
   '/legal-help': typeof LegalHelpRoute
   '/legal-updates': typeof LegalUpdatesRoute
-  '/my-categories': typeof MyCategoriesRoute
+  '/my-categories': typeof MyCategoriesRouteWithChildren
   '/upcoming-events': typeof UpcomingEventsRoute
+  '/my-categories/$topicId': typeof MyCategoriesTopicIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -122,6 +131,7 @@ export interface FileRouteTypes {
     | '/legal-updates'
     | '/my-categories'
     | '/upcoming-events'
+    | '/my-categories/$topicId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
     | '/legal-updates'
     | '/my-categories'
     | '/upcoming-events'
+    | '/my-categories/$topicId'
   id:
     | '__root__'
     | '/'
@@ -146,6 +157,7 @@ export interface FileRouteTypes {
     | '/legal-updates'
     | '/my-categories'
     | '/upcoming-events'
+    | '/my-categories/$topicId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -157,7 +169,7 @@ export interface RootRouteChildren {
   LegalAidEligibilityCheckerRoute: typeof LegalAidEligibilityCheckerRoute
   LegalHelpRoute: typeof LegalHelpRoute
   LegalUpdatesRoute: typeof LegalUpdatesRoute
-  MyCategoriesRoute: typeof MyCategoriesRoute
+  MyCategoriesRoute: typeof MyCategoriesRouteWithChildren
   UpcomingEventsRoute: typeof UpcomingEventsRoute
 }
 
@@ -233,8 +245,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UpcomingEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/my-categories/$topicId': {
+      id: '/my-categories/$topicId'
+      path: '/$topicId'
+      fullPath: '/my-categories/$topicId'
+      preLoaderRoute: typeof MyCategoriesTopicIdRouteImport
+      parentRoute: typeof MyCategoriesRoute
+    }
   }
 }
+
+interface MyCategoriesRouteChildren {
+  MyCategoriesTopicIdRoute: typeof MyCategoriesTopicIdRoute
+}
+
+const MyCategoriesRouteChildren: MyCategoriesRouteChildren = {
+  MyCategoriesTopicIdRoute: MyCategoriesTopicIdRoute,
+}
+
+const MyCategoriesRouteWithChildren = MyCategoriesRoute._addFileChildren(
+  MyCategoriesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -245,7 +276,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalAidEligibilityCheckerRoute: LegalAidEligibilityCheckerRoute,
   LegalHelpRoute: LegalHelpRoute,
   LegalUpdatesRoute: LegalUpdatesRoute,
-  MyCategoriesRoute: MyCategoriesRoute,
+  MyCategoriesRoute: MyCategoriesRouteWithChildren,
   UpcomingEventsRoute: UpcomingEventsRoute,
 }
 export const routeTree = rootRouteImport
