@@ -23,6 +23,7 @@ describe("App routing", () => {
       "/faqs",
       "/helplines",
       "/my-categories",
+      "/my-categories/cyber",
       "/legal-updates",
       "/legal-aid-eligibility-checker",
       "/upcoming-events",
